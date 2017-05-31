@@ -12,13 +12,15 @@
 <?php    
      session_start();
      $usuario = null;
+     $id_usuario = null;
+     $mensagem = null;
 
      if(isset($_SESSION['usuario'] ) and isset($_SESSION['id_usuario'])){
        $usuario = $_SESSION['usuario'];
+       $id_usuario = $_SESSION['id_usuario'];
        $mensagem = "Olá ";
      } else {
       $usuario = 'ENTRAR';
-      $mensagem = null;
      }
     ?>
 
@@ -60,15 +62,43 @@
             <h1>Criar conta <small>Congressista</small></h1>
           </div>
 
-          <form role="form" method="post" action="../controller/OrganizadorController.php">
-
+          <form role="form" method="post" action="../controller/EventoController.php">
+            <input type="hidden" name="id_organizador" value="<?php echo $id_organizador?>">
             <div class="form-group">
               <label for="nome">Nome</label>
               <input type="text" name="nome" class="form-control" id="nome" placeholder="Informe o seu nome">
             </div>
             <div class="form-group">
-              <label for="instuituicao">Instituição</label>
-              <input type="text" name="instuituicao" class="form-control" id="instuituicao" placeholder="Informe a sua instuituicao">
+              <label for="descricao">Descrição</label>
+              <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Informe a descrição">
+            </div>
+            <div class="form-group">
+              <label for="rg">RG</label>
+              <input type="text" name="rg" class="form-control" id="rg" placeholder="Informe o seu RG">
+            </div>
+            <div class="form-group">
+              <label for="CPF">CPF</label>
+              <input type="text" name="cpf" class="form-control" id="rg" placeholder="Informe o seu CPF">
+            </div>
+            <div class="form-group">
+              <label for="endereco">Endereço</label>
+              <input type="text" name="endereco" class="form-control" id="endereco" placeholder="Informe o seu endereco">
+            </div>
+            <div class="form-group">
+              <label for="complemento">Complemento</label>
+              <input type="text" name="complemento" class="form-control" id="complemento" placeholder="Informe o complemento">
+            </div>
+            <div class="form-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Informe a cidade">
+            </div>
+            <div class="form-group">
+              <label for="estado">Estado</label>
+              <input type="text" name="estado" class="form-control" id="estado" placeholder="Informe a sigla do estado">
+            </div>
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(99)99999-9999">
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
@@ -79,30 +109,7 @@
               <input type="password" name="senha" class="form-control" id="senha" placeholder="Informe sua senha">
             </div>
 
-
-            <div class="radio">
-              <label>
-                <input type="radio" name="tipoInstituicao" value="Empresa Júnior">Empresa Júnior
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="tipoInstituicao" value="Núcleo">Núcleo
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="tipoInstituicao" value="Federação">Federação
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="tipoInstituicao" value="Confederação">Confederação
-              </label>
-            </div>
-
-
-            <button type="submit" name="operacao" value="criar_conta_congressista" class="btn btn-default">Criar conta</button>
+            <button type="submit" name="operacao" value="cadastrar_evento" class="btn btn-default">Cadastrar Evento</button>
           </form>
           
         </div>

@@ -36,14 +36,6 @@
     $organizador->inserir();
     //echo "<meta http-equiv='refresh' content='0;url=../view/principal.php'>"; 
   }
-
-  if ($operacao == "entrar") {
-
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    $tipo = $_POST["tipo"];
-   
-  }
 ?>
 
 

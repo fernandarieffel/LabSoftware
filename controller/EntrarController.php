@@ -33,10 +33,10 @@
         if($res) {
           while($linha=mysqli_fetch_assoc($res)){
               $id = $linha['id'];
-              $instituicao=$linha['instituicao'];
+              $instituicao=$linha['nome'];
           }
           session_start();
-              $_SESSION['usuario'] = $instituicao;
+              $_SESSION['usuario'] = $nome;
               $_SESSION['id_usuario'] = $id;
           echo "<meta http-equiv='refresh' content='0;url=../view/principal.php'>"; 
         }

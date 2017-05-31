@@ -19,19 +19,30 @@
 
     $nome = $_POST['nome'];
     $instituicao = $_POST["instituicao"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    $tipoInstituicao = $_POST["tipoInstituicao"];
+    $rg = $_POST["rg"];
+    $cpf = $_POST["cpf"];
+    $endereco = $_POST["endereco"];
+    $complemento = $_POST['complemento'];
+    $cidade = $_POST['cidade'];
+    $estado = $_POST['estado'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
-    $organizador = new Organizador();
+    $congressista = new Congressista();
 
-    $organizador->instituicao = $instituicao;
-    $organizador->email = $email;
-    $organizador->senha = $senha;
-    $organizador->tipoInstituicao = $tipoInstituicao;
+    $congressista->nome = $nome;
+    $congressista->instituicao = $instituicao;
+    $congressista->rg = $rg;
+    $congressista->cpf = $cpf;
+    $congressista->endereco = $endereco;
+    $congressista->complemento = $complemento;
+    $congressista->cidade = $cidade;
+    $congressista->estado = $estado;
+    $congressista->email = $email;
+    $congressista->senha = $senha;
 
-    $organizador->inserir();
-    //echo "<meta http-equiv='refresh' content='0;url=../view/principal.php'>"; 
+    $congressista->inserir();
+    echo "<meta http-equiv='refresh' content='0;url=../view/principal.php'>"; 
   }
 ?>
 

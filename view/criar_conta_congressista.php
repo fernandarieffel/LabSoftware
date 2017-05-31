@@ -49,15 +49,15 @@
             <h1>Criar conta <small>Congressista</small></h1>
           </div>
 
-          <form role="form" method="post" action="../controller/OrganizadorController.php">
+          <form role="form" method="post" action="../controller/CongressistaController.php">
 
             <div class="form-group">
               <label for="nome">Nome</label>
               <input type="text" name="nome" class="form-control" id="nome" placeholder="Informe o seu nome">
             </div>
             <div class="form-group">
-              <label for="instuituicao">Instituição</label>
-              <input type="text" name="instuituicao" class="form-control" id="instuituicao" placeholder="Informe a sua instuituição">
+              <label for="instituicao">Instituição</label>
+              <input type="text" name="instituicao" class="form-control" id="instituicao" placeholder="Informe a sua instituição">
             </div>
             <div class="form-group">
               <label for="rg">RG</label>
