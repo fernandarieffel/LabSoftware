@@ -27,5 +27,12 @@
 			$bd->fechar();
 		}
 
+		function listarPorOrganizador($id){
+			$bd = new ConexaoDB;
+			$bd->conectar();
+			return $bd->query("SELECT * FROM evento WHERE id_organizador='$id'");
+			$bd->fechar();
+		}
+
 	}
 ?>

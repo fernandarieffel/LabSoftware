@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistema Integrado de Eventos do MEJ</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 
@@ -58,7 +58,7 @@
     	<div class="row">
 
         <div class="page-header">
-          <h1 class="text-center">Principais Eventos</h1>
+          <h1 class="text-center">Meus Eventos</h1>
         </div>
 
 <?php
@@ -67,7 +67,7 @@
   
   $evento = new evento();
 
-  $res = $evento->listar();
+  $res = $evento->listarPorOrganizador($_SESSION['id_usuario']);
 
   while($linha = mysqli_fetch_assoc($res)) {
     $id = $linha['id'];
@@ -81,11 +81,9 @@
     echo '<p><a class="btn btn-primary" href="evento.php?id='.$id.'" role="button">Inscrever-se</a></p>';
     echo '</div>';
     echo '</div>';
-  }     
+  }   
 ?>
-        <div class="col-md-12">
-          <p class="text-center"><a class="btn btn-default btn-lg" href="#" role="button">Ver todos os eventos</a></p>      
-        </div>
+
     	</div>
     </div>
 

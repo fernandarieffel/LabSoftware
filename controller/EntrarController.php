@@ -38,7 +38,7 @@
           session_start();
               $_SESSION['usuario'] = $nome;
               $_SESSION['id_usuario'] = $id;
-          echo "<meta http-equiv='refresh' content='0;url=../view/principal.php'>"; 
+          echo "<meta http-equiv='refresh' content='0;url=../view/meus_eventos_congressista.php'>"; 
         }
         
     }
@@ -59,7 +59,7 @@
           session_start();
               $_SESSION['usuario'] = $instituicao;
               $_SESSION['id_usuario'] = $id;
-          echo "<meta http-equiv='refresh' content='0;url=../view/cadastrar_evento.php'>"; 
+          echo "<meta http-equiv='refresh' content='0;url=../view/meus_eventos_organizador.php'>"; 
         }
         
     }
