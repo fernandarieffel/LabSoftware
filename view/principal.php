@@ -60,22 +60,30 @@
           <h1 class="text-center">Principais Eventos</h1>
         </div>
 
+<?php
+  include "../model/ConexaoDB.class.php";
+  include "../model/Evento.class.php";
+  
+  $evento = new evento();
 
-    		<div class="col-md-6">
-    			<div class="jumbotron">
-            <h3>ESEJ 2017</h3>
-            <p>25 a 28 de maio</p>
-            <p><a class="btn btn-primary" href="#" role="button">Inscrever-se</a></p>
-          </div>
-    		</div>
+  $res = $evento->listar();
 
-        <div class="col-md-6">
-          <div class="jumbotron">
-            <h3>Evento teste</h3>
-            <p>1 a 5 de julho</p>
-            <p><a class="btn btn-primary" href="#" role="button">Inscrever-se</a></p>
-          </div>
-        </div>    	
+  while($linha = mysqli_fetch_assoc($res)) {
+    $id = $linha['id'];
+    $nome = $linha['nome'];
+    $descricao = $linha['descricao'];
+
+    echo '<div class="col-md-6">';
+    echo '<div class="jumbotron">';
+    echo '<h3>'.$nome.'</h3>';
+    echo '<p>25 a 28 de maio</p>';
+    echo '<p><a class="btn btn-primary" href="evento.php?id='.$id.'" role="button">Inscrever-se</a></p>';
+    echo '</div>';
+    echo '</div>';
+  }           
+
+
+?>
 
         <div class="col-md-6">
           <div class="jumbotron">
@@ -93,7 +101,9 @@
           </div>
         </div>  
 
-        <p class="text-center"><a class="btn btn-default btn-lg" href="#" role="button">Ver todos os eventos</a></p>    	
+        <div class="col-md-12">
+          <p class="text-center"><a class="btn btn-default btn-lg" href="#" role="button">Ver todos os eventos</a></p>      
+        </div>
     	</div>
     </div>
 

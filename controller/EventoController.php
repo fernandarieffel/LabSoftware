@@ -11,60 +11,25 @@
 
 <?php
   include "../model/ConexaoDB.class.php";
-  include "../model/Organizador.class.php";
+  include "../model/Evento.class.php";
 
   $operacao = $_POST["operacao"];
 
-  if ($operacao == "criar_conta_organizador") {
+  if ($operacao == "cadastrar_evento") {
 
-    $instituicao = $_POST["instituicao"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    $tipoInstituicao = $_POST["tipoInstituicao"];
+    $nome = $_POST['nome'];
+    $descricao = $_POST["descricao"];
 
-    echo $instituicao;
-    echo $email;
-    echo $senha;
-    echo $tipoInstituicao;
-    $organizador = new Organizador();
+    $evento = new Evento();
 
-    $organizador->instituicao = $instituicao;
-    $organizador->email = $email;
-    $organizador->senha = $senha;
-    $organizador->tipoInstituicao = $tipoInstituicao;
+    $evento->id_organizador = $_POST['id_organizador'];
+    $evento->nome = $nome;
+    $evento->descricao = $descricao;
 
-    $organizador->inserir();
-    //echo "<meta http-equiv='refresh' content='0;url=../view/principal.php'>"; 
+    $evento->inserir();
+    echo "<meta http-equiv='refresh' content='0;url=../view/principal.php'>"; 
   }
 
-  if ($operacao == "entrar") {
-
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    $tipo = $_POST["tipo"];
-
-    if($tipo == "Organizador") {
-
-        $organizador = new Organizador();
-
-        $organizador->email = $email;
-        $organizador->senha = $senha;
-        $res = $organizador->entrar();
-       
-        if($res) {
-          while($linha=mysqli_fetch_assoc($res)){
-              $id = $linha['id'];
-              $instituicao=$linha['instituicao'];
-          }
-          session_start();
-              $_SESSION['usuario'] = $instituicao;
-              $_SESSION['id_usuario'] = $id;
-          echo "<meta http-equiv='refresh' content='0;url=../view/principal.php'>"; 
-        }
-        
-    }
-    
-  }
 ?>
 
 

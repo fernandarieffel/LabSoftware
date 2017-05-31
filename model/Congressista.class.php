@@ -23,7 +23,7 @@
 			$bd->fechar();
 		}
 		
-		function mostrar(){
+		function listar(){
 			$bd = new ConexaoDB;
 			$bd->conectar();
 			return $bd->query("SELECT * FROM congressista");
