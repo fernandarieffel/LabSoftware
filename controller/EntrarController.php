@@ -24,21 +24,22 @@
 
     if($tipo == "Congressista") {
 
-        $organizador = new Congressista();
+        $congressista = new Congressista();
 
-        $organizador->email = $email;
-        $organizador->senha = $senha;
-        $res = $organizador->entrar();
+        $congressista->email = $email;
+        $congressista->senha = $senha;
+        $res = $congressista->entrar();
        
         if($res) {
           while($linha=mysqli_fetch_assoc($res)){
               $id = $linha['id'];
-              $instituicao=$linha['nome'];
+              $nome=$linha['nome'];
           }
           session_start();
-              $_SESSION['usuario'] = $nome;
-              $_SESSION['id_usuario'] = $id;
-          echo "<meta http-equiv='refresh' content='0;url=../view/meus_eventos_congressista.php'>"; 
+          $_SESSION['usuario'] = $nome;
+          $_SESSION['id_usuario'] = $id;
+          $_SESSION['tipo_usuario'] = $tipo;
+          echo "<meta http-equiv='refresh' content='0;url=../view/meus_eventos.php'>"; 
         }
         
     }
@@ -57,13 +58,12 @@
               $instituicao=$linha['instituicao'];
           }
           session_start();
-              $_SESSION['usuario'] = $instituicao;
-              $_SESSION['id_usuario'] = $id;
-          echo "<meta http-equiv='refresh' content='0;url=../view/meus_eventos_organizador.php'>"; 
+          $_SESSION['usuario'] = $instituicao;
+          $_SESSION['id_usuario'] = $id;
+          $_SESSION['tipo_usuario'] = $tipo;
+          echo "<meta http-equiv='refresh' content='0;url=../view/meus_eventos.php'>"; 
         }
-        
     }
-    
   }
 ?>
 

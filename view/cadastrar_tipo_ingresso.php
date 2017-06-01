@@ -73,45 +73,28 @@
         <div class="col-md-6">
 
           <div class="page-header">
-            <h1>Criar conta <small>Organizador</small></h1>
+            <h1>Cadastrar Ingresso <br/><small><?php echo $_GET['nome_evento'];?></small></h1>
           </div>
 
-          <form role="form" method="post" action="../controller/OrganizadorController.php?operacao=criar_conta_organizador">
+          <form role="form" method="post" action="../controller/TipoIngressoController.php">
+            <input type="hidden" name="id_evento" value="<?php echo $_GET['id_evento'];?>">
             <div class="form-group">
-              <label for="instituicao">Instituição</label>
-              <input type="text" name="instituicao" class="form-control" id="instituicao" placeholder="Informe a sua instuituicao">
-            </div>
-            <div class="form-group">
-              <label for="email">E-mail</label>
-              <input type="email" name="email" class="form-control" id="email" placeholder="seu_email@mail.com">
+              <label for="descricao">Descrição</label>
+              <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Informe a descrição do ingresso">
             </div>
             <div class="form-group">
-              <label for="senha">Senha</label>
-              <input type="password" name="senha" class="form-control" id="senha" placeholder="Informe sua senha">
+              <label for="valor">Valor</label>
+              <input type="number" name="valor" class="form-control" id="valor" placeholder="R$ 0,00">
             </div>
-
-
-            <div class="radio">
-              <label>
-                <input type="radio" name="tipoInstituicao" value="Empresa Junior">Empresa Júnior
-              </label>
+            <div class="form-group">
+              <label for="vagas">Vagas</label>
+              <input type="number" name="vagas" class="form-control" id="vagas" placeholder="00">
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="tipoInstituicao" value="Nucleo">Núcleo
-              </label>
+            <div class="form-group">
+              <label for="detalhes">Detalhes</label>
+              <input type="text" name="detalhes" class="form-control" id="detalhes" placeholder="Informe os detlhes do ingresso">
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="tipoInstituicao" value="Federacao">Federação
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="tipoInstituicao" value="Confederacao">Confederação
-              </label>
-            </div>
-            <button type="submit" name="operacao" value="criar_conta_organizador" class="btn btn-default">Criar conta</button>
+            <button type="submit" name="operacao" value="cadastrar_tipo_ingresso" class="btn btn-default">Cadastrar</button>
           </form>
           
         </div>
